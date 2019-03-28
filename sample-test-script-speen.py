@@ -8,8 +8,8 @@ testboard = SpannerTestboard("xenonEthDev3")
 CHARGER_RELAY_PIN = "D2"
 LOAD_RELAY_PIN = "D6"
 
-GREEN_LED_PIN = "A5"
-RED_LED_PIN = "A4"
+GREEN_LED_PIN = "A4"
+RED_LED_PIN = "A5"
 
 
 def test_measure_power_consumption():
@@ -46,9 +46,9 @@ def test_measure_power_consumption():
 
     time.sleep(10)
 
-    testboard.digitalWrite(CHARGER_RELAY_PIN, 'LOW')
-    testboard.digitalWrite(LOAD_RELAY_PIN, 'LOW')
-    testboard.digitalWrite(GREEN_LED_PIN, 'LOW')
-    testboard.digitalWrite(RED_LED_PIN, 'LOW')
+    # testboard.digitalWrite(CHARGER_RELAY_PIN, 'LOW')
+    # testboard.digitalWrite(LOAD_RELAY_PIN, 'LOW')
+    # testboard.digitalWrite(GREEN_LED_PIN, 'LOW')
+    # testboard.digitalWrite(RED_LED_PIN, 'LOW')
     
 
