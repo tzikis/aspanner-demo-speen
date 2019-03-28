@@ -12,7 +12,9 @@ GREEN_LED_PIN = "A3"
 RED_LED_PIN = "A4"
 
 
-TEMP_PIN = "A2"
+TEMP_PIN = "A0"
+
+DIVIDER_PIN = "A2"
 
 def test_measure_power_consumption():
     print("")
@@ -47,6 +49,8 @@ def test_measure_power_consumption():
 
     temperature = get_temperature(TEMP_PIN)
     print("Temperature: " + str(temperature))
+
+    divider_voltage=testboard.analogRead(DIVIDER_PIN)
 
     time.sleep(10)
 
