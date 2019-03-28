@@ -8,12 +8,17 @@ testboard = SpannerTestboard("xenonEthDev3")
 CHARGER_RELAY_PIN = "D2"
 LOAD_RELAY_PIN = "D6"
 
+GREEN_LED_PIN = "A5"
+RED_LED_PIN = "A4"
+
 
 def test_measure_power_consumption():
     print("")
     testboard.digitalWrite(CHARGER_RELAY_PIN, 'LOW')
     testboard.digitalWrite(LOAD_RELAY_PIN, 'LOW')
-    # time.sleep(5)
+    testboard.digitalWrite(GREEN_LED_PIN, 'LOW')
+    testboard.digitalWrite(RED_LED_PIN, 'LOW')
+    time.sleep(5)
 
     INA219 = SpannerTestboard.INA219
 
@@ -33,5 +38,17 @@ def test_measure_power_consumption():
     current = (shunt_voltage_mv) /  shunt_resistor
     print(current)
 
-    time.sleep(1)
+    testboard.digitalWrite(CHARGER_RELAY_PIN, 'HIGH')
+    testboard.digitalWrite(LOAD_RELAY_PIN, 'HIGH')
+    testboard.digitalWrite(GREEN_LED_PIN, 'HIGH')
+    testboard.digitalWrite(RED_LED_PIN, 'HIGH')
+    
+
+    time.sleep(10)
+
+    testboard.digitalWrite(CHARGER_RELAY_PIN, 'LOW')
+    testboard.digitalWrite(LOAD_RELAY_PIN, 'LOW')
+    testboard.digitalWrite(GREEN_LED_PIN, 'LOW')
+    testboard.digitalWrite(RED_LED_PIN, 'LOW')
+    
 
