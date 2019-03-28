@@ -19,10 +19,10 @@ def test_measure_power_consumption():
 
     print("Measuring Shunt Voltage & Current")
     shunt_voltage_mv = testboard.ina219_getValue(INA219.SHUNT_VOLTAGE_MV)
+    current_multiplier = 5
     current = testboard.ina219_getValue(INA219.CURRENT_MA) * current_multiplier
 
     print("Current consumption (mA):")
-    current_multiplier = 5
     print(current)
 
     print("Shunt Voltage (mV):")
