@@ -12,6 +12,8 @@ GREEN_LED_PIN = "A4"
 RED_LED_PIN = "A5"
 
 
+TEMP_PIN = "A3"
+
 def test_measure_power_consumption():
     print("")
     testboard.digitalWrite(CHARGER_RELAY_PIN, 'LOW')
@@ -42,7 +44,9 @@ def test_measure_power_consumption():
     testboard.digitalWrite(LOAD_RELAY_PIN, 'HIGH')
     testboard.digitalWrite(GREEN_LED_PIN, 'HIGH')
     testboard.digitalWrite(RED_LED_PIN, 'HIGH')
-    
+
+    temperature = get_temperature(TEMP_PIN)
+    print("Temperature: " + str(temperature))
 
     time.sleep(10)
 
@@ -50,5 +54,12 @@ def test_measure_power_consumption():
     # testboard.digitalWrite(LOAD_RELAY_PIN, 'LOW')
     # testboard.digitalWrite(GREEN_LED_PIN, 'LOW')
     # testboard.digitalWrite(RED_LED_PIN, 'LOW')
-    
+
+
+#get the current temperature.
+def get_temperature(tmp_pin):
+  value = testboard.analogRead(tmp_pin)
+  voltage = (3.3 * value) / 4096
+  return (voltage - 0.5) * 100
+
 
