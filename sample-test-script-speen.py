@@ -33,33 +33,33 @@ def test_measure_power_consumption():
     INA219 = SpannerTestboard.INA219
     # testboard.ina219_setGainOne()
 
-    print("Measuring Shunt Voltage & Current")
-    shunt_voltage_mv = testboard.ina219_getValue(INA219.SHUNT_VOLTAGE_MV)
-    current_multiplier = 5
-    current = testboard.ina219_getValue(INA219.CURRENT_MA) * current_multiplier
-
-    print("Current consumption (mA):")
-    print(current)
-
-    print("Shunt Voltage (mV):")
-    print(shunt_voltage_mv)
-
-    print("Shunt Current consumption (mA):")
-    shunt_resistor = 0.02
-    current = (shunt_voltage_mv) /  shunt_resistor
-    print(current)
-
-    testboard.digitalWrite(CHARGER_RELAY_PIN, 'HIGH')
-    testboard.digitalWrite(LOAD_RELAY_PIN, 'HIGH')
-    testboard.digitalWrite(GREEN_LED_PIN, 'HIGH')
-    testboard.digitalWrite(RED_LED_PIN, 'HIGH')
-
-    temperature = get_temperature(TEMP_PIN)
-    print("Temperature: " + str(temperature))
-
-    meas=testboard.analogRead(DIVIDER_PIN)
-    divider_voltage = float(meas)/4096 * 3.3
-    print("Divider voltage: " + str(divider_voltage))
+    # print("Measuring Shunt Voltage & Current")
+    # shunt_voltage_mv = testboard.ina219_getValue(INA219.SHUNT_VOLTAGE_MV)
+    # current_multiplier = 5
+    # current = testboard.ina219_getValue(INA219.CURRENT_MA) * current_multiplier
+    #
+    # print("Current consumption (mA):")
+    # print(current)
+    #
+    # print("Shunt Voltage (mV):")
+    # print(shunt_voltage_mv)
+    #
+    # print("Shunt Current consumption (mA):")
+    # shunt_resistor = 0.02
+    # current = (shunt_voltage_mv) /  shunt_resistor
+    # print(current)
+    #
+    # testboard.digitalWrite(CHARGER_RELAY_PIN, 'HIGH')
+    # testboard.digitalWrite(LOAD_RELAY_PIN, 'HIGH')
+    # testboard.digitalWrite(GREEN_LED_PIN, 'HIGH')
+    # testboard.digitalWrite(RED_LED_PIN, 'HIGH')
+    #
+    # temperature = get_temperature(TEMP_PIN)
+    # print("Temperature: " + str(temperature))
+    #
+    # meas=testboard.analogRead(DIVIDER_PIN)
+    # divider_voltage = float(meas)/4096 * 3.3
+    # print("Divider voltage: " + str(divider_voltage))
 
     testboard.digitalWrite(DMM_PIN, 'HIGH')
     dmm = UT61E(testboard)
