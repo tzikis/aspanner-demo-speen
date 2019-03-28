@@ -12,7 +12,7 @@ GREEN_LED_PIN = "A3"
 RED_LED_PIN = "A4"
 
 
-TEMP_PIN = "A0"
+TEMP_PIN = "A7"
 
 def test_measure_power_consumption():
     print("")
