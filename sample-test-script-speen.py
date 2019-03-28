@@ -2,6 +2,10 @@ import time
 import pytest
 from SpannerTestboard import SpannerTestboard
 
+from ut61e_py.UT61E import UT61E
+import datetime
+
+
 testboard = SpannerTestboard("xenonEthDev3")
 
 
@@ -54,6 +58,22 @@ def test_measure_power_consumption():
     meas=testboard.analogRead(DIVIDER_PIN)
     divider_voltage = float(meas)/4096 * 3.3
     print("Divider voltage: " + str(divider_voltage))
+
+    dmm = UT61E(testboard)
+    meas = dmm.get_meas()
+    # {'mode': 'V/mV', 'range': '22.000', 'val': 12.422, 'units': 'V', 'norm_val': 12.422, 'norm_units': 'V',
+    #  'percent': False, 'minus': False, 'low_bat': False, 'ovl': False, 'delta': False, 'ul': False, 'max': False,
+    #  'min': False, 'dc': True, 'ac': False, 'auto': True, 'hz': False, 'hold': False, 'data_valid': True}
+    print("Timestamp: ", datetime.datetime.now())
+    print(meas)
+
+    assert meas["data_valid"]
+    assert meas["mode"] == "V/mV"
+    assert meas["dc"]
+    assert meas["hold"] == False
+    assert meas["norm_units"] == "V"
+    assert meas["norm_val"] > 12
+
 
     time.sleep(10)
 
