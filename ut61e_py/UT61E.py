@@ -251,7 +251,7 @@ class UT61E(object):
     def _serialRead(self, length):
         Serial = self._tb.Serial
         my_procedure = self._tb.createProcedure('UART'). \
-            setup(19200, Serial.DATA_BITS_7 | Serial.STOP_BITS_1 | Serial.PARITY_ODD). \
+            setup(19200, 40). \
             clear().\
             doSerialRead(length)
 
