@@ -59,7 +59,9 @@ def test_measure_power_consumption():
 #get the current temperature.
 def get_temperature(tmp_pin):
   value = testboard.analogRead(tmp_pin)
+  print(value)
   voltage = (3.3 * value) / 4096
+  print(voltage)
   return (voltage - 0.5) * 100
 
 
