@@ -20,6 +20,8 @@ TEMP_PIN = "A0"
 
 DIVIDER_PIN = "A2"
 
+DMM_PIN = "A1"
+
 def test_measure_power_consumption():
     print("")
     testboard.digitalWrite(CHARGER_RELAY_PIN, 'LOW')
@@ -59,6 +61,7 @@ def test_measure_power_consumption():
     divider_voltage = float(meas)/4096 * 3.3
     print("Divider voltage: " + str(divider_voltage))
 
+    testboard.digitalWrite(DMM_PIN, 'HIGH')
     dmm = UT61E(testboard)
     meas = dmm.get_meas()
     # {'mode': 'V/mV', 'range': '22.000', 'val': 12.422, 'units': 'V', 'norm_val': 12.422, 'norm_units': 'V',
@@ -73,6 +76,7 @@ def test_measure_power_consumption():
     assert meas["hold"] == False
     assert meas["norm_units"] == "V"
     assert meas["norm_val"] > 12
+    testboard.digitalWrite(DMM_PIN, 'LOW')
 
 
     time.sleep(10)
