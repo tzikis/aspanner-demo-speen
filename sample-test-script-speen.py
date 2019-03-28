@@ -8,8 +8,8 @@ testboard = SpannerTestboard("xenonEthDev3")
 CHARGER_RELAY_PIN = "D2"
 LOAD_RELAY_PIN = "D6"
 
-GREEN_LED_PIN = "A4"
-RED_LED_PIN = "A5"
+GREEN_LED_PIN = "A3"
+RED_LED_PIN = "A4"
 
 
 TEMP_PIN = "A0"
