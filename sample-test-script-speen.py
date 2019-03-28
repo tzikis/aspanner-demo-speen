@@ -50,7 +50,8 @@ def test_measure_power_consumption():
     temperature = get_temperature(TEMP_PIN)
     print("Temperature: " + str(temperature))
 
-    divider_voltage=testboard.analogRead(DIVIDER_PIN)
+    meas=testboard.analogRead(DIVIDER_PIN)
+    divider_voltage = float(meas)/4096 * 3.3
     print("Divider voltage: " + str(divider_voltage))
 
     time.sleep(10)
