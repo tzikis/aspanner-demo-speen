@@ -252,7 +252,7 @@ class UT61E(object):
         Serial = self._tb.Serial
         my_procedure = self._tb.createProcedure('UART'). \
             setup(19200, Serial.DATA_BITS_7 | Serial.STOP_BITS_1 | Serial.PARITY_ODD). \
-            doWait(10). \
+            clear(). \
             doSerialRead(length)
 
         exit_code, results = my_procedure.run(withResults=True)
