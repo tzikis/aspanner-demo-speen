@@ -50,10 +50,10 @@ def test_measure_power_consumption():
 
     time.sleep(10)
 
-    # testboard.digitalWrite(CHARGER_RELAY_PIN, 'LOW')
-    # testboard.digitalWrite(LOAD_RELAY_PIN, 'LOW')
-    # testboard.digitalWrite(GREEN_LED_PIN, 'LOW')
-    # testboard.digitalWrite(RED_LED_PIN, 'LOW')
+    testboard.digitalWrite(CHARGER_RELAY_PIN, 'LOW')
+    testboard.digitalWrite(LOAD_RELAY_PIN, 'LOW')
+    testboard.digitalWrite(GREEN_LED_PIN, 'LOW')
+    testboard.digitalWrite(RED_LED_PIN, 'LOW')
 
 
 #get the current temperature.
