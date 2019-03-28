@@ -5,14 +5,14 @@ from SpannerTestboard import SpannerTestboard
 testboard = SpannerTestboard("xenonEthDev3")
 
 
-# BATTERY_RELAY_PIN = "D2"
-# MAINS_RELAY_PIN = "D6"
+CHARGER_RELAY_PIN = "D2"
+LOAD_RELAY_PIN = "D6"
 
 
 def test_measure_power_consumption():
     print("")
-    # testboard.digitalWrite(MAINS_RELAY_PIN, 'HIGH')
-    # testboard.digitalWrite(BATTERY_RELAY_PIN, 'HIGH')
+    testboard.digitalWrite(CHARGER_RELAY_PIN, 'LOW')
+    testboard.digitalWrite(LOAD_RELAY_PIN, 'LOW')
     # time.sleep(5)
 
     INA219 = SpannerTestboard.INA219
