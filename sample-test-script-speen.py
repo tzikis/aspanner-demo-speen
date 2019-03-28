@@ -18,18 +18,20 @@ def test_measure_power_consumption():
     INA219 = SpannerTestboard.INA219
 
     print("Measuring Shunt Voltage & Current")
-    print("Shunt Voltage (mV):")
     shunt_voltage_mv = testboard.ina219_getValue(INA219.SHUNT_VOLTAGE_MV)
-    print(shunt_voltage_mv)
-
-    print("Current consumption (mA):")
-    shunt_resistor = 0.02
-    current = (shunt_voltage_mv * 1000) /  shunt_resistor
-    print(current)
+    current = testboard.ina219_getValue(INA219.CURRENT_MA) * current_multiplier
 
     print("Current consumption (mA):")
     current_multiplier = 5
-    current = testboard.ina219_getValue(INA219.CURRENT_MA) * current_multiplier
     print(current)
+
+    print("Shunt Voltage (mV):")
+    print(shunt_voltage_mv)
+
+    print("Shunt Current consumption (mA):")
+    shunt_resistor = 0.02
+    current = (shunt_voltage_mv) /  shunt_resistor
+    print(current)
+
     time.sleep(1)
 
