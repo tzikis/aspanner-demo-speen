@@ -31,7 +31,7 @@ def test_measure_power_consumption():
     time.sleep(5)
 
     INA219 = SpannerTestboard.INA219
-    # testboard.ina219_setGainOne()
+    testboard.ina219_setGainOne()
 
     print("Measuring Shunt Voltage & Current")
     shunt_voltage_mv = testboard.ina219_getValue(INA219.SHUNT_VOLTAGE_MV)
